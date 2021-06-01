@@ -1,0 +1,386 @@
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 0;
+}
+
+@mixin flexboxinline() {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    font-size: 0;
+}
+
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+// <Подключение шрифтов>=========================================================================
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,600,700,800,900&display=swap&subset=cyrillic-ext");
+// <Подключение шрифтов>=========================================================================
+// <Шрифт по умолчанию>==========================================================================
+$fontfamily: "Montserrat";
+// <Шрифт по умолчанию>==========================================================================
+// <ПЕРЕМЕННЫЕ>==================================================================================
+$minwidth: 320px;
+$maxwidth: 1280;
+$maxwidthcontainer: 1120;
+$md1: $maxwidthcontainer+12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+// <ПЕРЕМЕННЫЕ>==================================================================================
+// <ОБОЛОЧКА>====================================================================================
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    @include flexbox();
+    flex-direction: column;
+    font-family: $fontfamily, sans-serif;
+}
+
+// <ОБОЛОЧКА>====================================================================================
+// <ОСНОВНАЯ СЕТКА>==============================================================================
+._container {
+    max-width: $maxwidthcontainer + px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    @media (max-width: $md1+px) {
+        max-width: 970px;
+    }
+    @media (max-width: $md2+px) {
+        max-width: 750px;
+    }
+    @media (max-width: $md3+px) {
+        max-width: none;
+        padding: 0 10px;
+    }
+}
+
+// <ОСНОВНАЯ СЕТКА>==============================================================================
+// <ОСНОВНОЙ БЛОК>===============================================================================
+.order {
+    background-color: #f4f4f4;
+    &__container {
+        display: flex;
+        padding: 94px 80px 104px 80px;
+        margin: 0px 0px 0px 0px;
+        @media screen and (max-width: $md4+px) {
+            flex-direction: column;
+            padding: 60px 0px 59px 0px;
+        }
+    }
+    &__medicine {
+        position: relative;
+        flex: 0 0 560px;
+        box-shadow: 0px 24px 80px rgba(0, 0, 0, 0.1);
+        border-radius: 1px;
+        @media screen and (max-width: $md4+px) {
+            width: 320px;
+            flex: 0 0 281px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0px 24px 80px rgba(0, 0, 0, 0.1);
+        }
+    }
+    &__photo {
+        height: 500px;
+        flex: 0 0 560px;
+        @media screen and (max-width: $md4+px) {
+            height: 202px;
+            margin: 79px auto 0px auto;
+        }
+    }
+    &__image1 {
+        @media screen and (max-width: $md4+px) {
+            padding: 101px;
+            background: #428a60;
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+        }
+    }
+    &__image2 {
+        position: absolute;
+        top: 212px;
+        left: 57px;
+        @media screen and (max-width: $md4+px) {
+            position: absolute;
+            top: 120px;
+            left: 56px;
+            display: block;
+            background: url("..//img/image2_.png") no-repeat;
+            width: 0px;
+            height: 122px;
+            padding-left: 223px;
+        }
+    }
+    &__label1 {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 130%;
+        color: #ffffff;
+        @media screen and (max-width: $md4+px) {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 130%;
+            color: #212121;
+        }
+    }
+    &__label2 {
+        position: absolute;
+        top: 442px;
+        left: 40px;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 130%;
+        text-transform: uppercase;
+        color: #ffffff;
+        @media screen and (max-width: $md4+px) {
+            position: absolute;
+            top: 40px;
+            left: 259px;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 130%;
+            color: #212121;
+        }
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-shadow: 0px 24px 80px rgba(0, 0, 0, 0.1);
+        border-radius: 1px;
+        z-index: 1;
+        flex: 0 0 500px;
+        height: 500px;
+        @media screen and (max-width: $md4+px) {
+            width: 320px;
+            flex: 0 0 416px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        }
+    }
+    &__header {
+        background-color: #f8f8f8;
+        border-radius: 0px 30px 0px 0px;
+        width: 560px;
+        height: 136px;
+        text-align: center;
+        @media screen and (max-width: $md4+px) {
+            background-color: #ffffff;
+            border-radius: 0px 0px 0px 0px;
+            width: 320px;
+            flex: 0 0 115px;
+        }
+    }
+    &__title {
+        margin: 29px 128px 29px 129px;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 130%;
+        text-align: center;
+        color: #212121;
+        @media screen and (max-width: $md4+px) {
+            margin: 0 auto;
+            max-width: 280px;
+            margin: 37px auto 0px auto;
+        }
+    }
+    &__form {
+        margin: 52px 0px 60px 117px;
+        @media screen and (max-width: $md4+px) {
+            margin: 28px 0px 0px 20px;
+        }
+        &__btn {}
+    }
+    &__name {}
+    &__telephone {}
+    &__secure {
+        @media screen and (max-width: $md4+px) {
+            height: 40px;
+            width: 320px;
+            background-color: #f8f8f8;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 130%;
+            text-align: center;
+            padding: 11px 0;
+            color: #212121;
+            box-shadow: 0px 24px 80px rgba(0, 0, 0, 0.1);
+            .trusted {
+                background-image: url("../img/icons/lock.svg");
+                background-position: right;
+                background-repeat: no-repeat;
+                padding: 0px 33px 0px 0px;
+            }
+            .secure {
+                padding: 0px 0px 0px 20px;
+            }
+        }
+    }
+}
+
+.name {
+    &__text {}
+    &__input {
+        width: 320px;
+        margin: 0px 0px 20px 0px;
+        &::placeholder {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 130%;
+            color: #212121;
+            opacity: 0.2;
+        }
+        @media screen and (max-width: $md4+px) {
+            width: 280px;
+        }
+    }
+}
+
+.telephone {
+    &__text {}
+    &__input {
+        width: 184px;
+        margin: 0px 20px 38px 0px;
+        &::placeholder {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 130%;
+            color: #212121;
+            opacity: 0.2;
+        }
+        @media screen and (max-width: $md4+px) {
+            width: 174px;
+            margin: 0px 10px 28px 0px;
+        }
+    }
+    &__number {
+        display: flex;
+    }
+    &__flags {
+        position: relative;
+        width: 116.18px;
+        margin: 0px 0px 38px 0px;
+        @media screen and (max-width: $md4+px) {
+            width: 96.18px;
+            margin: 0px 0px 28px 0px;
+        }
+    }
+    &__dropdown {
+        position: absolute;
+        top: 15px;
+        left: 0px;
+        right: 0px;
+        img {
+            position: absolute;
+            left: 52px;
+            @media screen and (max-width: $md4+px) {
+                left: 42px;
+            }
+        }
+    }
+}
+
+.text {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0px 0px 10px 0px;
+}
+
+.text span {
+    color: #428a60;
+}
+
+.form__btn span {
+    background-image: url("../img/icons/vector2.svg");
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 0px 28px 0px 0px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 130%;
+    color: #fff;
+}
+
+.flag {
+    background-image: url("../img/icons/polygon1.svg");
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 0px 57px 0px 0px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 130%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #212121;
+}
+
+img {
+    max-width: 100%;
+}
+
+br {
+    @media screen and (max-width: $md4+px) {
+        display: none;
+    }
+}
+
+// <ОСНОВНОЙ БЛОК>==============================================================================
+// <BUTTONS>====================================================================================
+.btn {
+    background: #428a60;
+    border-radius: 5px;
+    display: inline-flex;
+    padding: 0px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 42px;
+    width: 320px;
+    &:hover {
+        background: #35734f;
+    }
+    @media screen and (max-width: $md4+px) {
+        width: 280px;
+    }
+}
+
+// <BUTTONS>====================================================================================
+// <INPUTS>=====================================================================================
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    appearance: none;
+}
+
+.input {
+    background: #f8f8f8;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 50px;
+    text-indent: 20px;
+    @media screen and (max-width: $md4+px) {
+        text-indent: 10px;
+    }
+}
+
+// <INPUTS>=====================================================================================
